@@ -1,0 +1,11 @@
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.deps.json
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.dll
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.pdb
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.AssemblyInfo.cs
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.dll
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\refint\ShapeLibrary.dll
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.pdb
+C:\Users\PC\source\repos\Application\OOP_course_work\ShapeLibrary\obj\Debug\net6.0\ref\ShapeLibrary.dll
