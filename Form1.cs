@@ -48,7 +48,6 @@ namespace OOP_course_work
             toolStrip.Items.Add(new ToolStripSeparator());
             toolStrip.Items.Add(new ToolStripButton("Save", null, (_, _) => SaveScene()));
             toolStrip.Items.Add(new ToolStripButton("Load", null, (_, _) => LoadScene()));
-            toolStrip.Items.Add(new ToolStripButton("Clear", null, (_, _) => ClearScene()));
 
             canvas.BackColor = Color.White;
             canvas.Dock = DockStyle.Fill;
@@ -229,17 +228,6 @@ namespace OOP_course_work
             RefreshUi();
         }
 
-        private void ClearScene()
-        {
-            if (scene.Shapes.Count == 0)
-            {
-                return;
-            }
-
-            history.Execute(new ClearSceneCommand(scene));
-            selectedShapeId = null;
-        }
-
         private void SaveScene()
         {
             using SaveFileDialog dialog = new()
@@ -304,13 +292,11 @@ namespace OOP_course_work
         private void RefreshStats()
         {
             string byKind = string.Join(Environment.NewLine, scene.CountByKind().Select(pair => $"{pair.Key}: {pair.Value}"));
-            string averages = string.Join(Environment.NewLine, scene.AverageAreaByKind().Select(pair => $"{pair.Key} avg: {pair.Value:F1}"));
             string largest = string.Join(Environment.NewLine, scene.LargestShapes(3).Select(shape => $"{shape.Kind}: {shape.Area:F1}"));
             statsLabel.Text =
                 $"Visible: {scene.CountVisible()}{Environment.NewLine}" +
                 $"Total area: {scene.TotalArea():F1}{Environment.NewLine}{Environment.NewLine}" +
                 $"By type:{Environment.NewLine}{byKind}{Environment.NewLine}{Environment.NewLine}" +
-                $"Average area:{Environment.NewLine}{averages}{Environment.NewLine}{Environment.NewLine}" +
                 $"Largest:{Environment.NewLine}{largest}";
         }
 

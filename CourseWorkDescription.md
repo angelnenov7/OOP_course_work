@@ -1,20 +1,20 @@
-# Задание за курсова работа по ООП
+# OOP Coursework Description
 
-## Тема
+## Topic
 
-Приложение за работа с графични фигури чрез Windows Forms.
+Windows Forms application for working with graphical shapes.
 
-## Функционални изисквания
+## Functional Requirements
 
-Потребителят може да създава, избира, премества, редактира и изтрива графични фигури върху сцена. Поддържат се три вида фигури: правоъгълник, елипса и триъгълник. За всяка фигура могат да се променят позиция, размери, цвят на запълване, цвят на контур, име и видимост. Приложението изчислява лице на фигурите, показва статистики за сцената и позволява запис/зареждане във файл чрез JSON сериализация.
+The user can create, select, move, edit, and delete shapes on a scene. The application supports three shape types: rectangle, ellipse, and triangle. Each shape has position, size, fill color, border color, visibility, drawing behavior, hit-testing behavior, and area calculation. The scene can be saved to and loaded from a file through serialization.
 
-## Покритие на изискванията
+## Requirement Coverage
 
-- Етап 1: `ShapeLibrary` съдържа йерархия `Shape`, `RectangleShape`, `EllipseShape`, `TriangleShape`, капсулирани свойства, виртуални методи, полиморфна колекция в `ShapeScene`, различни модификатори за достъп, свойства, делегати и събития чрез `ShapeScene.Changed` и `ISceneCommand.Executed`.
-- Етап 2: Windows Forms интерфейсът предоставя сцена, команди за създаване/редакция/изтриване, диалози за цветове, свойства, запис и зареждане. Рисуването използва `System.Drawing` само в UI слоя. Операциите са реализирани чрез йерархия от команди в `ShapeLibrary.Commands`, а `CommandHistory` поддържа Undo/Redo.
-- Етап 3: `SceneSerializer` записва и зарежда сцената чрез сериализация. `ShapeScene` използва LINQ за броене, групиране, филтриране, сортиране, сумиране и средни стойности. Преизползваемата логика е отделена в библиотеката `ShapeLibrary`, която няма зависимост към Windows Forms или `System.Drawing`.
+- Stage 1: `ShapeLibrary` contains the class hierarchy `Shape`, `RectangleShape`, `EllipseShape`, and `TriangleShape`; encapsulated state; properties; virtual methods; polymorphic work through `ShapeScene`; public/private access modifiers; delegates and events through `ShapeScene.Changed` and `ISceneCommand.Executed`.
+- Stage 2: The Windows Forms interface provides a scene, shape creation commands, editing, deletion, save/load dialogs, and mouse selection/movement. `System.Drawing` is used only in the UI drawing layer. UI operations are implemented as commands in `ShapeLibrary.Commands`, and `CommandHistory` provides Undo/Redo.
+- Stage 3: `SceneSerializer` saves and loads the scene through JSON serialization. `ShapeScene` uses LINQ operations for filtering visible shapes, counting, grouping by type, sorting by area, summing total area, and selecting DTOs for serialization. The reusable project logic is separated in `ShapeLibrary`, which has no dependency on Windows Forms or `System.Drawing`.
 
-## Основна йерархия
+## Main Hierarchy
 
 ```mermaid
 classDiagram
@@ -26,7 +26,6 @@ classDiagram
     SceneCommand <|-- DeleteShapeCommand
     SceneCommand <|-- MoveShapeCommand
     SceneCommand <|-- UpdateShapeCommand
-    SceneCommand <|-- ClearSceneCommand
     ShapeScene "1" o-- "*" Shape
     CommandHistory "1" o-- "*" ISceneCommand
 ```

@@ -4,7 +4,6 @@ namespace OOP_course_work;
 
 public sealed class ShapePropertiesForm : Form
 {
-    private readonly TextBox nameTextBox = new();
     private readonly NumericUpDown xInput = new();
     private readonly NumericUpDown yInput = new();
     private readonly NumericUpDown widthInput = new();
@@ -31,7 +30,7 @@ public sealed class ShapePropertiesForm : Form
         {
             Dock = DockStyle.Fill,
             ColumnCount = 2,
-            RowCount = 9,
+            RowCount = 8,
             Padding = new Padding(12)
         };
         layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38));
@@ -42,8 +41,6 @@ public sealed class ShapePropertiesForm : Form
         ConfigureNumber(widthInput, shape.Width);
         ConfigureNumber(heightInput, shape.Height);
 
-        nameTextBox.Text = shape.Name;
-        nameTextBox.Dock = DockStyle.Fill;
         visibleCheckBox.Checked = shape.IsVisible;
         visibleCheckBox.Dock = DockStyle.Left;
         fillButton.BackColor = Color.FromArgb(fillArgb);
@@ -53,21 +50,20 @@ public sealed class ShapePropertiesForm : Form
         fillButton.Click += (_, _) => PickColor(fillButton, ref fillArgb);
         borderButton.Click += (_, _) => PickColor(borderButton, ref borderArgb);
 
-        AddRow(layout, 0, "Name", nameTextBox);
-        AddRow(layout, 1, "X", xInput);
-        AddRow(layout, 2, "Y", yInput);
-        AddRow(layout, 3, "Width", widthInput);
-        AddRow(layout, 4, "Height", heightInput);
-        AddRow(layout, 5, "Fill", fillButton);
-        AddRow(layout, 6, "Border", borderButton);
-        AddRow(layout, 7, "Visible", visibleCheckBox);
+        AddRow(layout, 0, "X", xInput);
+        AddRow(layout, 1, "Y", yInput);
+        AddRow(layout, 2, "Width", widthInput);
+        AddRow(layout, 3, "Height", heightInput);
+        AddRow(layout, 4, "Fill", fillButton);
+        AddRow(layout, 5, "Border", borderButton);
+        AddRow(layout, 6, "Visible", visibleCheckBox);
 
         FlowLayoutPanel buttons = new() { FlowDirection = FlowDirection.RightToLeft, Dock = DockStyle.Fill };
         Button okButton = new() { Text = "OK", DialogResult = DialogResult.OK, Width = 88 };
         Button cancelButton = new() { Text = "Cancel", DialogResult = DialogResult.Cancel, Width = 88 };
         buttons.Controls.Add(okButton);
         buttons.Controls.Add(cancelButton);
-        layout.Controls.Add(buttons, 0, 8);
+        layout.Controls.Add(buttons, 0, 7);
         layout.SetColumnSpan(buttons, 2);
 
         AcceptButton = okButton;
@@ -81,7 +77,6 @@ public sealed class ShapePropertiesForm : Form
         {
             Id = id,
             Kind = kind,
-            Name = nameTextBox.Text.Trim(),
             X = (double)xInput.Value,
             Y = (double)yInput.Value,
             Width = (double)widthInput.Value,

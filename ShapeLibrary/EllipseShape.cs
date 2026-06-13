@@ -4,7 +4,6 @@ public sealed class EllipseShape : Shape
 {
     public EllipseShape(double x, double y, double width, double height) : base(x, y, width, height)
     {
-        Name = "Ellipse";
     }
 
     public override ShapeKind Kind => ShapeKind.Ellipse;

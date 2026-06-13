@@ -29,12 +29,6 @@ public sealed class ShapeScene
         return true;
     }
 
-    public void Clear()
-    {
-        shapes.Clear();
-        OnChanged();
-    }
-
     public Shape? FindById(Guid id)
     {
         return shapes.FirstOrDefault(shape => shape.Id == id);
@@ -70,11 +64,6 @@ public sealed class ShapeScene
     public IReadOnlyList<Shape> LargestShapes(int count)
     {
         return shapes.OrderByDescending(shape => shape.Area).Take(count).ToList();
-    }
-
-    public IReadOnlyDictionary<ShapeKind, double> AverageAreaByKind()
-    {
-        return shapes.GroupBy(shape => shape.Kind).ToDictionary(group => group.Key, group => group.Average(shape => shape.Area));
     }
 
     public IReadOnlyList<ShapeDto> ToDtos()

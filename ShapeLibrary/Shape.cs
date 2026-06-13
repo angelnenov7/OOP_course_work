@@ -19,7 +19,6 @@ public abstract class Shape
 
     public Guid Id { get; private set; }
     public abstract ShapeKind Kind { get; }
-    public string Name { get; set; } = string.Empty;
     public double X { get; private set; }
     public double Y { get; private set; }
 
@@ -75,7 +74,6 @@ public abstract class Shape
         {
             Id = Id,
             Kind = Kind,
-            Name = Name,
             X = X,
             Y = Y,
             Width = Width,
@@ -89,7 +87,6 @@ public abstract class Shape
     public void Apply(ShapeDto dto)
     {
         Id = dto.Id == Guid.Empty ? Id : dto.Id;
-        Name = dto.Name;
         X = dto.X;
         Y = dto.Y;
         Width = dto.Width;

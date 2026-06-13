@@ -4,7 +4,6 @@ public sealed class TriangleShape : Shape
 {
     public TriangleShape(double x, double y, double width, double height) : base(x, y, width, height)
     {
-        Name = "Triangle";
     }
 
     public override ShapeKind Kind => ShapeKind.Triangle;

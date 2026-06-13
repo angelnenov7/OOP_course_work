@@ -1,0 +1,11 @@
+# User-specific Visual Studio files
+.vs/
+*.user
+
+# Build output
+bin/
+obj/
+
+# Coursework/reference files kept locally
+Requirements.pdf
+PROJECT_EXPLANATION.md
